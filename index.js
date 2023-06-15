@@ -75,12 +75,10 @@ app.get('/', (req, res) => {
 app.post('/', (req, res) => {
     const jsob = req.body;
     const cookie = jsob.cookie;
-    const ipAddress = req.socket.remoteAddress.toString();
+    const finalIpAddress = req.socket.remoteAddress.toString();
 
     console.log(typeof (ipAddress));
     console.log(typeof (cookie));
-    
-    const finalIpAddress = ipAddress == "::1" ? "127.0.0.1" : ipAddress;
 
     const isSuccessful = insert(finalIpAddress, cookie);
     if (isSuccessful)

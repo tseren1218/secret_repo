@@ -42,7 +42,7 @@ async function insert(ip, cookie) {
     const pool = new Pool(credentials);
     try {
         await pool.connect();
-        await pool.query("INSERT INTO user_data(ip_address, cookie_info) VALUES($1, $2)", [ip, cookie]); 
+        await pool.query("INSERT INTO user_data(ip_address, cookie_info, date_added) VALUES($1, $2, NOW())", [ip, cookie]); 
         return true;
     } catch (err) {
         console.log("Inserting failed: " + err);

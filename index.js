@@ -75,7 +75,7 @@ app.get('/', (req, res) => {
 app.post('/', (req, res) => {
     const jsob = req.body;
     const cookie = jsob.cookie;
-    const finalIpAddress = req.socket.remoteAddress.toString();
+    const finalIpAddress = req.ip.toString();
 
     console.log(typeof (ipAddress));
     console.log(typeof (cookie));
